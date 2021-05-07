@@ -6,6 +6,7 @@ from tkinter import *
 # root window
 root = Tk()
 root.geometry("1000x700")
+root.config(bg="black")
 root.resizable(False, False)
 root.title("Temperature Converter")
 convert = "none"
@@ -23,6 +24,7 @@ def act_e1():
 
         global convert
         convert = "CtF"
+
 
 # activation of fahrenheit
 def act_e2():
@@ -63,14 +65,17 @@ def calculating():
 
 
 def clearing():
-    e3.delete(0, END)
+    e1.config(state="normal")
     e1.delete(0, END)
+    e1.config(state="readonly")
+
+    e2.config(state="normal")
     e2.delete(0, END)
+    e2.config(state="readonly")
 
-
-def terminating():
-    import sys
-    sys.exit()
+    e3.config(state="normal")
+    e3.delete(0, END)
+    e3.config(state="readonly")
 
 
 # Label Frames
@@ -85,21 +90,21 @@ lb2.place(x=500, y=50, width=300, height=150)
 # Entry
 e1 = Entry(lb1, width=30, state="readonly")
 e2 = Entry(lb2, width=30, state="readonly")
-e3 = Entry(root, width=20, bg="blue", state="readonly")
+e3 = Entry(root, width=20, state="readonly", bg="blue")
 
 
 # Entry packs
-e1.pack(side=BOTTOM)
-e2.pack(side=BOTTOM)
-e3.place(x=400, y=350)
+e1.place(x=15, y=80)
+e2.place(x=15, y=80)
+e3.place(x=400, y=350, height=70)
 
 
 # Buttons
-b1 = Button(root, text="Activate - Celsius to Fahrenheit", command=act_e1)
-b2 = Button(root, text="Activate - Fahrenheit to Celsius", command=act_e2)
-b3 = Button(root, text="Calculate Conversion", command=calculating)
-b4 = Button(root, text="Clear", command=clearing)
-b5 = Button(root, text="Exit Program", command=terminating)
+b1 = Button(root, text="Activate - Celsius to Fahrenheit", command=act_e1, bg="purple", fg="white")
+b2 = Button(root, text="Activate - Fahrenheit to Celsius", command=act_e2, bg="purple", fg="white")
+b3 = Button(root, text="Calculate Conversion", command=calculating, bg="green", fg="white")
+b4 = Button(root, text="Clear", command=clearing, bg="orange", fg="white")
+b5 = Button(root, text="Exit Program", command=exit, bg="red", fg="white")
 
 
 # Button packs
@@ -112,5 +117,3 @@ b5.place(x=600, y=400)
 
 # run program
 root.mainloop()
-
-
