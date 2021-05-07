@@ -71,6 +71,7 @@ def calculating():
 
         messagebox.showerror("ERROR", "Please enter a number for temperature")
 
+
 # defining the clear button
 def clearing():
     e1.config(state="normal")
@@ -84,6 +85,14 @@ def clearing():
     e3.config(state="normal")
     e3.delete(0, END)
     e3.config(state="readonly")
+
+
+def button_Exit():
+    msg_box = messagebox.askquestion("Terminating Program", "Are you sure you want to close this program?", icon="warning")
+    if msg_box == "yes":
+        root.destroy()
+    else:
+        messagebox.showinfo("Temperature Converter", "Returning to program.", icon="warning")
 
 
 # Label Frames
@@ -112,7 +121,7 @@ b1 = Button(root, text="Activate - Celsius to Fahrenheit", command=act_e1, bg="p
 b2 = Button(root, text="Activate - Fahrenheit to Celsius", command=act_e2, bg="purple", fg="white")
 b3 = Button(root, text="Calculate Conversion", command=calculating, bg="green", fg="white")
 b4 = Button(root, text="Clear", command=clearing, bg="orange", fg="white")
-b5 = Button(root, text="Exit Program", command=exit, bg="red", fg="white")
+b5 = Button(root, text="Exit Program", command=button_Exit, bg="red", fg="white")
 
 
 # Button packs
