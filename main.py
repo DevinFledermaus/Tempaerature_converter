@@ -4,6 +4,8 @@
 from tkinter import *
 
 # root window
+from tkinter import messagebox
+
 root = Tk()
 root.geometry("1000x700")
 root.config(bg="black")
@@ -41,29 +43,35 @@ def act_e2():
 
 # calculation of conversion
 def calculating():
-    global convert
-    if convert == "CtF":
-        temp = float(e1.get())
-        answer = str(temp * 9 / 5 + 32)
-        e3.config(state="normal")
-        e3.delete(0, END)
-        e3.insert(0, answer)
-        e3.config(state="readonly")
-    elif convert == "FtC":
-        temp = float(e2.get())
-        answer = str((temp - 32) * 5 / 9)
-        e3.config(state="normal")
-        e3.delete(0, END)
-        e3.insert(0, answer)
-        e3.config(state="readonly")
-    else:
-        answer = "Convert Correctly"
-        e3.config(state="normal")
-        e3.delete(0, END)
-        e3.insert(0, answer)
-        e3.config(state="readonly")
+    try:
+        global convert
+        if convert == "CtF":
+            temp = float(e1.get())
+            answer = str(temp * 9 / 5 + 32)
+            e3.config(state="normal")
+            e3.delete(0, END)
+            e3.insert(0, answer)
+            e3.config(state="readonly")
+        elif convert == "FtC":
+            temp = float(e2.get())
+            answer = str((temp - 32) * 5 / 9)
+            e3.config(state="normal")
+            e3.delete(0, END)
+            e3.insert(0, answer)
+            e3.config(state="readonly")
 
+    except ValueError as ex:
+        e1.config(state="normal")
+        e1.delete(0, END)
+        e1.config(state="readonly")
 
+        e2.config(state="normal")
+        e2.delete(0, END)
+        e2.config(state="readonly")
+
+        messagebox.showerror("ERROR", "Please enter a number for temperature")
+
+# defining the clear button
 def clearing():
     e1.config(state="normal")
     e1.delete(0, END)
