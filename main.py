@@ -7,7 +7,7 @@ from tkinter import *
 from tkinter import messagebox
 
 root = Tk()
-root.geometry("1000x700")
+root.geometry("800x600")
 root.config(bg="black")
 root.resizable(False, False)
 root.title("Temperature Converter")
