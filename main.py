@@ -100,8 +100,8 @@ lb1 = LabelFrame(root, text="Celsius to Fahrenheit")
 lb2 = LabelFrame(root, text="Fahrenheit to Celsius")
 
 # LabelFrame place
-lb1.place(x=150, y=50, width=300, height=150)
-lb2.place(x=500, y=50, width=300, height=150)
+lb1.place(x=80, y=50, width=300, height=150)
+lb2.place(x=430, y=50, width=300, height=150)
 
 
 # Entry
@@ -113,7 +113,7 @@ e3 = Entry(root, width=20, state="readonly", bg="blue")
 # Entry packs
 e1.place(x=15, y=80)
 e2.place(x=15, y=80)
-e3.place(x=400, y=350, height=70)
+e3.place(x=330, y=350, height=70)
 
 
 # Buttons
@@ -125,11 +125,11 @@ b5 = Button(root, text="Exit Program", command=button_Exit, bg="red", fg="white"
 
 
 # Button packs
-b1.place(x=180, y=210)
-b2.place(x=530, y=210)
-b3.place(x=200, y=350)
-b4.place(x=600, y=350)
-b5.place(x=600, y=400)
+b1.place(x=110, y=210)
+b2.place(x=460, y=210)
+b3.place(x=130, y=350)
+b4.place(x=530, y=350)
+b5.place(x=530, y=400)
 
 
 # run program
